@@ -1,0 +1,12 @@
+{
+  "name": "manga",
+  "version": "1.0.0",
+  "description": "backbone manga",
+  "author": "Philip La",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.12.3",
+    "express": "^4.12.3",
+    "mongoose": "^4.0.2"
+  }
+}
