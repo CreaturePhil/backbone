@@ -21,6 +21,13 @@ var Manga = mongoose.model('manga', mangaSchema);
 
 app.get('/');
 
+app.get('/mangas', function(req, res, next) {
+  Manga.find(function(err, mangas) {
+    if (err) next(err);
+    res.json(mangas);
+  });
+});
+
 app.get('/mangas/:title', function(req, res, next) {
   Manga.findOne({title: req.params.title}, function(err, manga) {
     if (err) next(err);
