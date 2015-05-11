@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <td>Title</td>
+      <td>Author</td>
+      <td>Content</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% _.each(posts, function(post) { %>
+      <tr>
+        <td><%= post.get('title') %></td>
+        <td><%= post.get('author') %></td>
+        <td><%= post.get('content') %></td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>

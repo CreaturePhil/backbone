@@ -9,8 +9,12 @@ require.config({
 
 require([
   'backbone',
-  'views/app'
-], function(Backbone, AppView) {
+  'views/posts'
+], function(Backbone, PostsView) {
+  $.ajaxPrefilter(function(options) {
+    options.url = 'http://localhost:3000' + options.url;
+  });
+  
   var Router = Backbone.Router.extend({
     routes: {
       '': 'home'
@@ -20,7 +24,7 @@ require([
   var router = new Router();
 
   router.on('route:home', function() {
-    new AppView();
+    new PostsView();
   });
 
   Backbone.history.start();
