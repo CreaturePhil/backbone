@@ -1,8 +1,9 @@
 define([
+  'underscore',
   'backbone',
   'collections/posts',
   'text!templates/posts.html'
-], function(Backbone, Posts, postsTemplate) {
+], function(_, Backbone, Posts, postsTemplate) {
   var PostsView = Backbone.View.extend({
     el: '.container',
     template: _.template(postsTemplate),
