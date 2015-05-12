@@ -34,6 +34,7 @@ require([
   };
 
   var $body = $('body');
+  var $container = $('<div class="container">');
 
   var Router = Backbone.Router.extend({
     routes: {
@@ -46,7 +47,7 @@ require([
       if (this.currentView) {
         this.currentView.remove();
       }
-      $body.append($('<div class="container">'));
+      $body.append($container);
     },
     
     home: function() {
