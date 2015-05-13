@@ -1,3 +1,10 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "title": "Hello World",
+      "author": "Phil",
+      "content": "hi",
+      "id": 1
+    }
+  ]
 }
