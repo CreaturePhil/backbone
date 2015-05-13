@@ -9,9 +9,10 @@
   <tbody>
     <% _.each(posts, function(post) { %>
       <tr>
-        <td><%= post.get('title') %></td>
-        <td><%= post.get('author') %></td>
-        <td><%= post.get('content') %></td>
+        <td><%- post.get('title') %></td>
+        <td><%- post.get('author') %></td>
+        <td><%- post.get('content') %></td>
+        <td><button class="button alert small" data-post="<%- JSON.stringify(post) %>">Delete</button></td>
       </tr>
     <% }); %>
   </tbody>

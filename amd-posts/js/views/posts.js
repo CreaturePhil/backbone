@@ -2,8 +2,9 @@ define([
   'underscore',
   'backbone',
   'collections/posts',
-  'text!templates/posts.html'
-], function(_, Backbone, Posts, postsTemplate) {
+  'text!templates/posts.html',
+  'models/post'
+], function(_, Backbone, Posts, postsTemplate, Post) {
   var PostsView = Backbone.View.extend({
     el: '.container',
     template: _.template(postsTemplate),
@@ -13,6 +14,18 @@ define([
     },
     render: function() {
       this.$el.html(this.template({posts: Posts.models}));
+    },
+    events: {
+      'click .alert': 'delete'
+    },
+    delete: function(e) {
+      var postDetails = JSON.parse(e.currentTarget.dataset.post);
+      console.log(postDetails);
+      var post = new Post(postDetails);
+      post.destroy()
+        .success(function() {
+          Posts.fetch();
+        });
     }
   });
 
