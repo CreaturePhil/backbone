@@ -20,7 +20,6 @@ define([
     },
     delete: function(e) {
       var postDetails = JSON.parse(e.currentTarget.dataset.post);
-      console.log(postDetails);
       var post = new Post(postDetails);
       post.destroy()
         .success(function() {

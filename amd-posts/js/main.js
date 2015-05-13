@@ -44,9 +44,8 @@ require([
 
     // remove ghost views
     before: function() {
-      if (this.currentView) {
-        this.currentView.remove();
-      }
+      if (!this.currentView) return;
+      this.currentView.remove();
       $body.append($container);
     },
     
