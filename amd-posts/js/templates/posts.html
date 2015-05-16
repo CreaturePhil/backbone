@@ -11,7 +11,7 @@
       <tr>
         <td><%- post.get('title') %></td>
         <td><%- post.get('author') %></td>
-        <td><%- post.get('content') %></td>
+        <td><%= _.escape(post.get('content')).replace(/\n/g,'<br>') %></td>
         <td><button class="button alert small" data-post="<%- JSON.stringify(post) %>">Delete</button></td>
       </tr>
     <% }); %>
