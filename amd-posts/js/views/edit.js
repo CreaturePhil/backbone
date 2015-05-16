@@ -5,7 +5,6 @@ define([
   'models/post',
 ], function(_, Backbone, editTemplate, Post) {
   var EditView = Backbone.View.extend({
-    el: '.container',
     template: _.template(editTemplate),
     initialize: function(router) {
       this.router = router;
@@ -13,6 +12,7 @@ define([
     },
     render: function() {
       this.$el.html(this.template());
+      return this;
     },
     events: {
       'submit form': 'save'

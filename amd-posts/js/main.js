@@ -33,8 +33,7 @@ require([
     return o;
   };
 
-  var $body = $('body');
-  var $container = $('<div class="container">');
+  var $content = $('.container');
 
   var Router = Backbone.Router.extend({
     routes: {
@@ -46,17 +45,18 @@ require([
     before: function() {
       if (!this.currentView) return;
       this.currentView.remove();
-      $body.append($container);
     },
     
     home: function() {
       this.before();
       this.currentView = new PostsView();
+      $content.html(this.currentView.render().el);
     },
 
     edit: function() {
       this.before();
       this.currentView = new EditView(this);
+      $content.html(this.currentView.render().el);
     }
   });
 

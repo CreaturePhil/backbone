@@ -6,7 +6,6 @@ define([
   'models/post'
 ], function(_, Backbone, Posts, postsTemplate, Post) {
   var PostsView = Backbone.View.extend({
-    el: '.container',
     template: _.template(postsTemplate),
     initialize: function() {
       this.listenTo(Posts, 'sync', this.render);
@@ -14,6 +13,7 @@ define([
     },
     render: function() {
       this.$el.html(this.template({posts: Posts.models}));
+      return this;
     },
     events: {
       'click .alert': 'delete'
